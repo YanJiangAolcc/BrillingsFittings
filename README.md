@@ -1,4 +1,4 @@
-# Yan Jiang's web project.
+# Yan Jiang's web project: Brillings Fitting Inc.
 
 Homepage
 
