@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+  
+	<title>Brillings Fittings Inc.</title>
+  <link rel = "icon" href = "imgs/logo.png" type = "image/x-icon">
+
+  <link rel="stylesheet" type="text/css" href="app.css"> 
+</head>
+
+<body>
+  <!-- nav bar -->  
+  <nav class="navbar">
+    <div class="nav-left">
+      <a href="index.html"><img src="imgs/logo.png" alt="Logo"></a>
+    </div>
+    <div class="nav-right">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="products.html">Products</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+  </nav>
+
+  <div class="content" id="contact_content">
+    <h1 class="title" >Contact Us</h1>
+    <p class="description">
+      To receive further information about the many products and services available from Brillings Fittings Inc., 
+      please fill out and submit the form below. <br> 
+      You may also contact us by e-mail at info@brillingsfittings.com, by phone at (905) 987-6543, or by fax at (905) 987-5432.
+    </p>   
+  </div>
+</body>
+
+<div class="form-container">
+  <h2>Contact Us</h2>
+  <form>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="comment">Comment:</label>
+    <textarea id="comment" name="comment" required></textarea>
+
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+
+<footer>
+  <div class="contact">
+    <address>
+      3560 McDougal Avenue, Suite 600<br>
+      Richmond Hill, Ontario L4B 6R25<br>
+      Telephone: (905) 987-6543<br>
+      Fax: (905) 987-5432
+    </address>
+    <ul>
+      <li><a href="#">www.brillingsfittings.com</a></li>
+      <li><a href="#">info@brillingsfittings.com</a></li>
+    </ul>
+    <p>Copyright 2014, Brillings Fittings Inc. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  // Select the form element
+  const form = document.querySelector('form');
+
+  // Add a submit event listener to the form
+  form.addEventListener('submit', (event) => {
+    // Prevent the form from submitting
+    event.preventDefault();
+
+    // Get the form input values
+    const name = document.querySelector('#name').value.trim();
+    const email = document.querySelector('#email').value.trim();
+    const comment = document.querySelector('#comment').value.trim();
+
+    // Validate the form inputs
+    if (name === '' || !name.includes(' ')) {
+      alert('Please enter your first and last name.');
+      return;
+    }
+
+    if (!email.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g)) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+
+    if (comment.split(' ').length < 5) {
+      alert('Please enter at least 5 words in the comment field.');
+      return;
+    }
+
+    form.submit(); //Todo：send an email or save to a log ?
+
+    // Validation passed
+    alert("Thank you for your information! We will come back to you quickly.");
+    nameInput.value = "";
+    emailInput.value = "";
+    commentInput.value = "";
+  });
+</script>
+
+
+</html>
